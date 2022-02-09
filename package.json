@@ -1,5 +1,5 @@
 {
-  "name": "loadjs",
+  "name": "loader-js",
   "version": "4.2.0",
   "license": "MIT",
   "description": "Tiny async loader for modern browsers",
@@ -8,16 +8,17 @@
     "loader",
     "dependency manager"
   ],
-  "homepage": "https://github.com/muicss/loadjs",
-  "bugs": {
-    "url": "https://github.com/muicss/loadjs/issues",
-    "email": "contact@muicss.com"
-  },
+  "homepage": "https://github.com/AlanLang/loadjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/muicss/loadjs.git"
+    "url": "https://github.com/AlanLang/loadjs.git"
   },
   "main": "dist/loadjs.umd.js",
+  "files": [
+    "dist",
+    "README.md",
+    "index.d.ts"
+  ],
   "scripts": {
     "build-all": "gulp build-all",
     "build-dist": "gulp build-dist",
