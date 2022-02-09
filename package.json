@@ -1,6 +1,6 @@
 {
-  "name": "loader-js",
-  "version": "4.2.0",
+  "name": "js-dependencies-loader",
+  "version": "4.2.1",
   "license": "MIT",
   "description": "Tiny async loader for modern browsers",
   "keywords": [
