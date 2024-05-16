@@ -102,7 +102,7 @@ function loadFile(path, callbackFn, args, numTries) {
       async = args.async,
       maxTries = (args.numRetries || 0) + 1,
       beforeCallbackFn = args.before || devnull,
-      pathname = path,
+      pathname = path.replace(/&tag.*$/, ''),
       pathStripped = path.replace(/^(css|img)!/, ''),
       isLegacyIECss,
       e;
