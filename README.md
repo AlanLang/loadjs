@@ -2,17 +2,15 @@
 
 <img src="https://www.muicss.com/static/images/loadjs.svg" width="250px">
 
-LoadJS is a tiny async loader for modern browsers (899 bytes).
+LoadJS is a tiny async loader for modern browsers (961 bytes).
 
-[![Dependency Status](https://david-dm.org/muicss/loadjs.svg)](https://david-dm.org/muicss/loadjs)
-[![devDependency Status](https://david-dm.org/muicss/loadjs/dev-status.svg)](https://david-dm.org/muicss/loadjs?type=dev)
 [![CDNJS](https://img.shields.io/cdnjs/v/loadjs.svg)](https://cdnjs.com/libraries/loadjs)
 
 ## Introduction
 
-LoadJS is a tiny async loading library for modern browsers (IE9+). It has a simple yet powerful dependency management system that lets you fetch JavaScript, CSS and image files in parallel and execute code after the dependencies have been met. The recommended way to use LoadJS is to include the minified source code of [loadjs.js](https://raw.githubusercontent.com/muicss/loadjs/master/dist/loadjs.min.js) in your &lt;html&gt; (possibly in the &lt;head&gt; tag) and then use the `loadjs` global to manage JavaScript dependencies after pageload.
+LoadJS is a tiny async loading library for modern browsers (IE9+). It has a simple yet powerful dependency management system that lets you fetch JavaScript, CSS and image files in parallel and execute code after the dependencies have been met. The recommended way to use LoadJS is to include the minified source code of [loadjs.js](https://raw.githubusercontent.com/kubetail-org/loadjs/main/dist/loadjs.min.js) in your &lt;html&gt; (possibly in the &lt;head&gt; tag) and then use the `loadjs` global to manage JavaScript dependencies after pageload.
 
-LoadJS is based on the excellent [$script](https://github.com/ded/script.js) library by [Dustin Diaz](https://github.com/ded). We kept the behavior of the library the same but we re-wrote the code from scratch to add support for success/error callbacks and to optimize the library for modern browsers. LoadJS is 899 bytes (minified + gzipped).
+LoadJS is based on the excellent [$script](https://github.com/ded/script.js) library by [Dustin Diaz](https://github.com/ded). We kept the behavior of the library the same but we re-wrote the code from scratch to add support for success/error callbacks and to optimize the library for modern browsers. LoadJS is 961 bytes (minified + gzipped).
 
 Here's an example of what you can do with LoadJS:
 
@@ -48,17 +46,17 @@ You can also use more advanced syntax for more options:
 ```
 
 The latest version of LoadJS can be found in the `dist/` directory in this repository:
- * [https://cdn.rawgit.com/muicss/loadjs/4.2.0/dist/loadjs.js](https://cdn.rawgit.com/muicss/loadjs/4.2.0/dist/loadjs.js) (for development)
- * [https://cdn.rawgit.com/muicss/loadjs/4.2.0/dist/loadjs.min.js](https://cdn.rawgit.com/muicss/loadjs/4.2.0/dist/loadjs.min.js) (for production)
+ * [https://cdn.rawgit.com/kubetail-org/loadjs/4.3.0/dist/loadjs.js](https://cdn.rawgit.com/kubetail-org/loadjs/4.3.0/dist/loadjs.js) (for development)
+ * [https://cdn.rawgit.com/kubetail-org/loadjs/4.3.0/dist/loadjs.min.js](https://cdn.rawgit.com/kubetail-org/loadjs/4.3.0/dist/loadjs.min.js) (for production)
 
 It's also available from these public CDNs:
 
   * UNPKG
-    * [https://unpkg.com/loadjs@4.2.0/dist/loadjs.js](https://unpkg.com/loadjs@4.2.0/dist/loadjs.js) (for development)
-    * [https://unpkg.com/loadjs@4.2.0/dist/loadjs.min.js](https://unpkg.com/loadjs@4.2.0/dist/loadjs.min.js) (for production)
+    * [https://unpkg.com/loadjs@4.3.0/dist/loadjs.js](https://unpkg.com/loadjs@4.3.0/dist/loadjs.js) (for development)
+    * [https://unpkg.com/loadjs@4.3.0/dist/loadjs.min.js](https://unpkg.com/loadjs@4.3.0/dist/loadjs.min.js) (for production)
   * CDNJS
-    * [https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.2.0/loadjs.js](https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.2.0/loadjs.js) (for development)
-    * [https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.2.0/loadjs.min.js](https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.2.0/loadjs.min.js) (for production)
+    * [https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.3.0/loadjs.js](https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.3.0/loadjs.js) (for development)
+    * [https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.3.0/loadjs.min.js](https://cdnjs.cloudflare.com/ajax/libs/loadjs/4.3.0/loadjs.min.js) (for production)
 
 You can also use it as a CJS or AMD module:
 
@@ -132,6 +130,15 @@ Note: LoadJS treats empty CSS files as load failures in IE9-11 and uses `rel="pr
     ```javascript
     loadjs(['img!/path/to/image.custom'], function() {
       /* image.custom loaded */
+    });
+    ```
+
+1. Load JavaScript files as modules with non-module fallbacks (in browsers without module support)
+
+    ```javascript
+    loadjs(['module!/path/to/foo.js', 'nomodule!/path/to/bar.js'], function() {
+        /* foo.js loaded with type="module" in browsers with module support, skipped silently in browsers without */
+        /* bar.js loaded with type="text/javascript" in browsers without module support, skipped silently in browsers with */
     });
     ```
 
@@ -347,7 +354,7 @@ loadjs/
 1. Clone repository
 
     ```bash
-    $ git clone git@github.com:muicss/loadjs.git
+    $ git clone git@github.com:kubetail-org/loadjs.git
     $ cd loadjs
     ```
 
